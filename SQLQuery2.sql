@@ -1,0 +1,47 @@
+use [21L-6121(Lab-5)]
+--select guestname, guestaddress
+--from guest
+--where guestaddress like '%London%'
+--order by guestname asc;
+--------
+--select h.hotelname, count(r.roomno) from hotel as h 
+--inner join room as r on r.hotelno = h.hotelno
+--group by hotelname;
+-------
+--select hotel.hotelname, AVG(room.price) from room inner join hotel
+--on room.hotelno = hotel.hotelno where hotel.city like '%London%'
+--group by hotel.hotelname;
+-------------
+--select room.type, max(price) as price from room
+--group by room.type; 
+--------------
+--select distinct hotel.hotelname, hotel.city, count(room.type) from hotel
+--inner join room on hotel.hotelno = room.hotelno
+--group by  hotel.hotelname, hotel.city;
+--------------
+--select Distinct hotel.hotelname, hotel.city from hotel 
+--inner join booking on booking.hotelno = hotel.hotelno
+--inner join guest on guest.guestno = booking.guestno
+--where guest.guestaddress like '%London%';
+-------------------
+--select hotel.hotelname, hotel.city, count(booking.hotelno) from hotel 
+--inner join booking on booking.hotelno = hotel.hotelno
+--group by hotel.hotelname, hotel.city
+--order by hotel.hotelname, hotel.city desc;
+------------------
+--select g.guestname from guest as g
+--inner join booking as b on g.guestno = b.guestno where b.dateto is null;
+-----------------
+--select h.hotelname, b.guestno, b.roomno from hotel as h
+--inner join booking as b on h.hotelno = b.hotelno
+--where year(b.datefrom)='2001' or year(b.datefrom)='2002';
+-----------------
+--select h.hotelname, h.city from hotel as h
+--inner join booking as b on h.hotelno = b.hotelno 
+--where b.datefrom is null;
+--------------------
+--select h.hotelname, h.hotelno, r.price, r.roomno from hotel as h
+--left join room as r on h.hotelno = r.hotelno AND r.type = 'family';
+--------------------
+select count(guestno) from booking
+where dateto <= '05-01-2015';
